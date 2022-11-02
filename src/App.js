@@ -30,12 +30,15 @@ class App extends Component {
     this.setState(() => {
       return { searchField };
     });
-  }
+  };
 
   render() {
 
-    const filteredMonsters = this.state.monsters.filter(monster => {
-      return monster.name.toLowerCase().includes(this.state.searchField);
+    const { monsters, searchField } = this.state;
+    const { onSearchChange } = this;
+
+    const filteredMonsters = monsters.filter(monster => {
+      return monster.name.toLowerCase().includes(searchField);
     });
 
     return (
@@ -44,7 +47,7 @@ class App extends Component {
           className='search-box' 
           type='search' 
           placeholder='Search monsters' 
-          onChange={this.onSearchChange} 
+          onChange={onSearchChange} 
         />
         {
           filteredMonsters.map(monster => {
