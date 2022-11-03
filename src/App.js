@@ -1,6 +1,6 @@
 import {Component} from 'react'; 
-import logo from './logo.svg';
 import './App.css';
+import SearchBox from './components/search-box/search-box.component';
 import CardList from './components/card-list/card-list.component';
 
 class App extends Component {
@@ -41,13 +41,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <input 
-          className='search-box' 
-          type='search' 
-          placeholder='Search monsters' 
-          onChange={onSearchChange} 
-        />
-        
+        <SearchBox onChangeHandler={onSearchChange} />
         <CardList monsters={filteredMonsters} />
       </div>
     );
